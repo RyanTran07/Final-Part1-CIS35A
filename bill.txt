@@ -1,0 +1,7 @@
+Here is your receipt:
+--------------------------------------
+De Anza Burger: $5.25 x 10 = $52.50
+
+Subtotal: $52.50
+Tax Amount: $4.73
+Total: $57.23

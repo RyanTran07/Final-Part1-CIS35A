@@ -29,6 +29,8 @@ public class Driver {
         order1.getInputs();
         order1.calculate();
         order1.printBill();
+
+        order1.saveBillToFile();
     }
 }
 

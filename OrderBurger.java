@@ -238,13 +238,12 @@ public class OrderBurger extends Order {
             return;
         }
 
-
         try (PrintWriter output = new PrintWriter("bill.txt")){
             output.println("Here is your receipt:");
             output.println("--------------------------------------");
             for (int i = 0; i < getOrderArr().length; i++) {
                 if (getOrderArr()[i] > 0) {
-                    output.println(getBurgerNames()[i] + " x " + getOrderArr()[i] + "\t$" + String.format("%.2f", (getPriceArr()[i] * getOrderArr()[i])));
+                    output.println(getBurgerNames()[i] + ": $" + getPriceArr()[i] + " x " + getOrderArr()[i] + " = $"  + String.format("%.2f", (getPriceArr()[i] * getOrderArr()[i])));
                 }
             }
             output.printf("\nSubtotal: $%.2f\n", getSubTotal());
