@@ -13,7 +13,7 @@
 
 import java.util.Scanner;
 
-public class Order {
+public abstract class Order implements OrderInterface {
     Scanner input = new Scanner(System.in);
 
     // Array instance variables
@@ -23,7 +23,7 @@ public class Order {
     private final double[] priceArr = {5.25, 5.75, 5.95, 5.95, 5.95};
 
     // customerType = 1 (student) customerType = 2 (staff)
-    private int customerType;
+    private int customerType = -1;
 
     // Instance variables relating to money/calculations
     private double subTotal;
@@ -38,12 +38,7 @@ public class Order {
      *          subTotal, total, and tax instance variables to default values
      *
      */
-    public Order() {
-        this.customerType = -1;
-        this.subTotal = 0.0;
-        this.total = 0.0;
-        this.tax = 0.0;
-    }
+    public Order() {}
 
     /*
      * void displayMenu()
@@ -55,7 +50,10 @@ public class Order {
      *
      *
      */
+
     public void displayMenu() {
+        System.out.println("==========================================");
+
         System.out.println("De Anza Food Menu: ");
         for(int i = 0; i < arrSize; i++) {
             System.out.println((i+1) + ". " + burgerNames[i] + " - $" + priceArr[i]);
@@ -64,8 +62,14 @@ public class Order {
 
         System.out.println("6. Exit");
         System.out.println();
+
+        System.out.println("==========================================");
+
     }
 
+    public abstract void getInputs();
+    public abstract void calculate();
+    public abstract void printBill();
 
     /*
      * boolean orderArrEmpty()
