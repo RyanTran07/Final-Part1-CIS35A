@@ -70,7 +70,7 @@ public class OrderBurger extends Order {
             }
 
             // Collecting input
-            System.out.print("Please enter the quantity of " + burgerNames[userBurgerSelection - 1] + "s that you would like to order: " );
+            System.out.print("Please enter the quantity of " + this.getBurgerNames()[userBurgerSelection - 1] + "s that you would like to order: " );
 
 
             // Input validation for the amount of burgers to order
@@ -126,8 +126,8 @@ public class OrderBurger extends Order {
         // Input validation for customer type
         while (true) {
             	if (input.hasNextInt()) {
-            		customerType = input.nextInt();
-            		if (customerType <= 2 && customerType >= 1) {
+            		this.setCustomerType(input.nextInt());
+            		if (getCustomerType() <= 2 && getCustomerType() >= 1) {
             			break;
             		}
 
@@ -167,17 +167,17 @@ public class OrderBurger extends Order {
 
         // Printing out the ordered items and their quantities
         System.out.println("Ordered Items and Quantities: ");
-        for(int i = 0; i < arrSize; i++) {
-            System.out.println(burgerNames[i] + " Quantity Ordered: " + orderArr[i]);
+        for(int i = 0; i < getArrSize(); i++) {
+            System.out.println(getBurgerNames()[i] + " Quantity Ordered: " + getOrderArr()[i]);
         }
 
         System.out.println();
 
         // Printing out the cost per item, or sub total per item.
         System.out.println("Cost Per Item:");
-        for (int i = 0; i < arrSize; i++) {
-            if (orderArr [i] > 0) {
-                System.out.println(burgerNames[i] + ": $" + priceArr[i] + " x " + orderArr[i] + " = $" + String.format("%.2f", orderArr[i]*priceArr[i]));
+        for (int i = 0; i < getArrSize(); i++) {
+            if (getOrderArr()[i] > 0) {
+                System.out.println(getBurgerNames()[i] + ": $" + getPriceArr()[i] + " x " + getOrderArr()[i] + " = $" + String.format("%.2f", orderArr[i]*priceArr[i]));
             }
             else {
                 continue;
@@ -187,9 +187,9 @@ public class OrderBurger extends Order {
         System.out.println();
 
         // Printing out the subtotal, tax amount and total bill
-        System.out.printf("The total before tax is: $%.2f%n", subTotal);
-        System.out.printf("The tax amount is: $%.2f%n", tax);
-        System.out.printf("The total bill is: $%.2f%n", total);
+        System.out.printf("The total before tax is: $%.2f%n", getSubTotal());
+        System.out.printf("The tax amount is: $%.2f%n", getTax());
+        System.out.printf("The total bill is: $%.2f%n", getTotal());
 
     }
 
@@ -212,7 +212,7 @@ public class OrderBurger extends Order {
 
         // Subtotal calculation
         for (int i = 0; i < arrSize; i++) {
-            subTotal += priceArr[i] * orderArr[i];
+            setSubTotal += priceArr[i] * orderArr[i];
         }
 
         // Calculations using tax
@@ -234,7 +234,6 @@ public class OrderBurger extends Order {
 
 
         try (PrintWriter output = new PrintWriter("bill.txt")){
-            output.println("\nDate: " + formatter.format(getDateCreated()));
             output.println("Here is your receipt:");
             output.println("--------------------------------------");
             for (int i = 0; i < getOrderArr().length; i++) {

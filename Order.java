@@ -120,6 +120,27 @@ public abstract class Order implements OrderInterface {
     public double getTax() {
         return tax;
     }
+
+    public void setOrderArr(int[] orderArr) {
+        this.orderArr = orderArr;
+    }
+
+    public void setCustomerType(int customerType) {
+        this.customerType = customerType;
+    }
+
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
+    public void setTax(double tax) {
+        this.tax = tax;
+    }
+    
 }
 
 /*
