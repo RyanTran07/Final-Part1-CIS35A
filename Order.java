@@ -140,7 +140,7 @@ public abstract class Order implements OrderInterface {
     public void setTax(double tax) {
         this.tax = tax;
     }
-    
+
 }
 
 /*

@@ -3,6 +3,10 @@ import java.io.PrintWriter;
 
 public class OrderBurger extends Order {
 
+    public OrderBurger() {
+        super();
+    }
+
     /*
      * boolean orderArrEmpty()
      *  Purpose: Check if the order array is all zeros
@@ -14,8 +18,8 @@ public class OrderBurger extends Order {
      *
      */
     public boolean orderArrEmpty() {
-        for(int i = 0; i < arrSize; i++) {
-            if(orderArr[i] != 0) {
+        for(int i = 0; i < getArrSize(); i++) {
+            if(getOrderArr()[i] != 0) {
                 return false;
             }
         }
@@ -90,59 +94,61 @@ public class OrderBurger extends Order {
             }
 
             // Adds user inputted quantity to the order array
+            int[] quantities = getOrderArr();
             switch(userBurgerSelection) {
                 case 1:
-                    orderArr[0] += userQuantity;
+                    quantities[0] += userQuantity;
                     break;
                 case 2:
-                    orderArr[1] += userQuantity;
+                    quantities[1] += userQuantity;
                     break;
                 case 3:
-                    orderArr[2] += userQuantity;
+                    quantities[2] += userQuantity;
                     break;
                 case 4:
-                    orderArr[3] += userQuantity;
+                    quantities[3] += userQuantity;
                     break;
                 case 5:
-                    orderArr[4] += userQuantity;
+                    quantities[4] += userQuantity;
                     break;
 
             }
 
-            System.out.println();
-        }
+            setOrderArr(quantities);
 
-        // If the user exits without ordering
-        if(orderArrEmpty()) {
-            return;
-        }
+            }
+
+            if(orderArrEmpty()) {
+                return;
+            }
 
 
-        // Input collection for the customer type
-        System.out.println("Customer Types:");
-        System.out.println("1. Student\n2. Staff");
-        System.out.print("Please enter the type of customer you are: ");
+            // Input collection for the customer type
+            System.out.println("Customer Types:");
+            System.out.println("1. Student\n2. Staff");
+            System.out.print("Please enter the type of customer you are: ");
 
-        // Input validation for customer type
-        while (true) {
-            	if (input.hasNextInt()) {
-            		this.setCustomerType(input.nextInt());
-            		if (getCustomerType() <= 2 && getCustomerType() >= 1) {
-            			break;
-            		}
+            // Input validation for customer type
+            while (true) {
+                    if (input.hasNextInt()) {
+                        this.setCustomerType(input.nextInt());
+                        if (getCustomerType() <= 2 && getCustomerType() >= 1) {
+                            break;
+                        }
+
+                        else {
+                            System.out.print("Please enter a valid customer type. 1 for student or 2 for staff: ");
+                        }
+                    }
 
                     else {
-            			System.out.print("Please enter a valid customer type. 1 for student or 2 for staff: ");
-            		}
-            	}
+                        input.next();
+                        System.out.print("Please enter a valid customer type. 1 for student or 2 for staff: ");
+                    }
+            }
 
-                else {
-            		input.next();
-            		System.out.print("Please enter a valid customer type. 1 for student or 2 for staff: ");
-            	}
-        }
+                System.out.println();
 
-        System.out.println();
     }
 
     /*
@@ -177,7 +183,7 @@ public class OrderBurger extends Order {
         System.out.println("Cost Per Item:");
         for (int i = 0; i < getArrSize(); i++) {
             if (getOrderArr()[i] > 0) {
-                System.out.println(getBurgerNames()[i] + ": $" + getPriceArr()[i] + " x " + getOrderArr()[i] + " = $" + String.format("%.2f", orderArr[i]*priceArr[i]));
+                System.out.println(getBurgerNames()[i] + ": $" + getPriceArr()[i] + " x " + getOrderArr()[i] + " = $" + String.format("%.2f", getOrderArr()[i] * getPriceArr()[i]));
             }
             else {
                 continue;
@@ -211,18 +217,18 @@ public class OrderBurger extends Order {
         }
 
         // Subtotal calculation
-        for (int i = 0; i < arrSize; i++) {
-            setSubTotal += priceArr[i] * orderArr[i];
+        for (int i = 0; i < getArrSize(); i++) {
+            setSubTotal(getSubTotal() + getPriceArr()[i] * getOrderArr()[i]);
         }
 
         // Calculations using tax
-        if (customerType == 2) {
-            tax = subTotal * .09;
-            total = subTotal + tax;
+        if (getCustomerType() == 2) {
+            setTax(getSubTotal() * .09);
+            setTotal(getSubTotal() + getTax());
         }
 
-        else if (customerType == 1) {
-            total = subTotal;
+        else if (getCustomerType() == 1) {
+            setTotal(getSubTotal());
         }
 
     }
@@ -238,13 +244,13 @@ public class OrderBurger extends Order {
             output.println("--------------------------------------");
             for (int i = 0; i < getOrderArr().length; i++) {
                 if (getOrderArr()[i] > 0) {
-                    output.println(getItemArray()[i] + " x " + getOrderArr()[i] + "\t$" + String.format("%.2f", (getPriceArray()[i] * getOrderArr()[i])));
+                    output.println(getBurgerNames()[i] + " x " + getOrderArr()[i] + "\t$" + String.format("%.2f", (getPriceArr()[i] * getOrderArr()[i])));
                 }
             }
-            output.printf("\nSubtotal: $%.2f\n", getSubtotal());
+            output.printf("\nSubtotal: $%.2f\n", getSubTotal());
 
             // if user is student, tax is always $0, but is they are staff print out the calculated tax
-            if (getPersonType().equals("staff")) {
+            if (getCustomerType() == 2) {
                 output.printf("Tax Amount: $%.2f\n", getTax());
             }
             else {

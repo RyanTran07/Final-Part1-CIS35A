@@ -22,7 +22,7 @@ public class Driver {
     // Main method
     public static void main(String[] args) {
         // Creating the Order object
-        Order order1 = new Order();
+        Order order1 = new OrderBurger();
 
         // Calling the methods of the order object
         order1.displayMenu();
