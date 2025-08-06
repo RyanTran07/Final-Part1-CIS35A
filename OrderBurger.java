@@ -235,6 +235,14 @@ public class OrderBurger extends Order {
 
     /*
      * void saveBillToFile
+     *
+     * Writes the total of each item, the subtotal, tax amount, and total
+     * bill to a text file called bill.txt.
+     *
+     *  Receives: N/A
+     *  Returns: N/A
+     *  Outputs: A new bill.txt file with the total of each burger, the subtotal
+     *           tax amount, and the total bill written in the file.
      */
     public void saveBillToFile() {
         if(orderArrEmpty()) {
