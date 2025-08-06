@@ -1,5 +1,5 @@
 /*
- * Name: Ryan Tran, Krish Kowkuntla, Erin Law
+ * Name: Ryan Tran, Krish Kowkuntla, Erin Law, Carson Luu, Grace Truong
  *
  * Description: This program is a menu-driven interaction system where a user
  *              continuosly enters their burger choice and how many burgers
@@ -7,14 +7,14 @@
  *              It then asks them for what type of customer they are and prints
  *              out their order quantity, the subtotal for each burger option,
  *              their subtotal for all burgers, the tax charged, and the total
- *              bill. It implements an Order class, which holds all of the
- *              logic of the program, through multiple instance variables
- *              and methods. The Driver class contains a main method which
- *              creates an Order object and calls all required methods
- *              of the Order class in order for the program to work.
+ *              bill. It implements an abstract Order class, which contains
+ *              all of the instance variables, appropriate getters and setters
+ *              and abstract methods that  implemented in the
+ *              Order.java file.
  *
  * Note: To compile and run, this program was placed in a folder/directory. The
- *       Driver.java and Order.java programs are within this same directory.
+ *       Driver.java, Order.java, OrderBurger.java and OrderInterface.java
+ *       are all in the same folder/directory
  *
  */
 
@@ -33,4 +33,3 @@ public class Driver {
         order1.saveBillToFile();
     }
 }
-

@@ -68,26 +68,7 @@ public abstract class Order implements OrderInterface {
     public abstract void getInputs();
     public abstract void calculate();
     public abstract void printBill();
-
-    /*
-     * boolean orderArrEmpty()
-     *  Purpose: Check if the order array is all zeros
-     *
-     *  Receives: N/A
-     *  Returns: true - if the orderArr is all zeros
-     *           false - if the orderArr is not all zeros
-     *  Output: N/A
-     *
-     */
-    public boolean orderArrEmpty() {
-        for(int i = 0; i < arrSize; i++) {
-            if(orderArr[i] != 0) {
-                return false;
-            }
-        }
-
-        return true;
-    }
+    public abstract boolean orderArrEmpty();
 
     public int getArrSize() {
         return arrSize;
