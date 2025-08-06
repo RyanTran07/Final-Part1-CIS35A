@@ -28,7 +28,7 @@ public abstract class Order implements OrderInterface {
     // Instance variables relating to money/calculations
     private double subTotal;
     private double total;
-    private double tax;
+    private double taxAmount;
 
 
     /*
@@ -118,7 +118,7 @@ public abstract class Order implements OrderInterface {
     }
 
     public double getTax() {
-        return tax;
+        return taxAmount;
     }
 
     public void setOrderArr(int[] orderArr) {
@@ -137,9 +137,8 @@ public abstract class Order implements OrderInterface {
         this.total = total;
     }
 
-    public void setTax(double tax) {
-        this.tax = tax;
+    public void setTaxAmount(double taxAmount) {
+        this.taxAmount = taxAmount;
     }
 
 }
-

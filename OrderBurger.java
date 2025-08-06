@@ -223,7 +223,7 @@ public class OrderBurger extends Order {
 
         // Calculations using tax
         if (getCustomerType() == 2) {
-            setTax(getSubTotal() * .09);
+            setTaxAmount(getSubTotal() * TAX);
             setTotal(getSubTotal() + getTax());
         }
 
