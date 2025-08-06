@@ -116,38 +116,38 @@ public class OrderBurger extends Order {
 
             setOrderArr(quantities);
 
-            }
+        }
 
-            if(orderArrEmpty()) {
-                return;
-            }
+        if(orderArrEmpty()) {
+            return;
+        }
 
 
-            // Input collection for the customer type
-            System.out.println("Customer Types:");
-            System.out.println("1. Student\n2. Staff");
-            System.out.print("Please enter the type of customer you are: ");
+        // Input collection for the customer type
+        System.out.println("Customer Types:");
+        System.out.println("1. Student\n2. Staff");
+        System.out.print("Please enter the type of customer you are: ");
 
-            // Input validation for customer type
-            while (true) {
-                    if (input.hasNextInt()) {
-                        this.setCustomerType(input.nextInt());
-                        if (getCustomerType() <= 2 && getCustomerType() >= 1) {
-                            break;
-                        }
-
-                        else {
-                            System.out.print("Please enter a valid customer type. 1 for student or 2 for staff: ");
-                        }
+        // Input validation for customer type
+        while (true) {
+                if (input.hasNextInt()) {
+                    this.setCustomerType(input.nextInt());
+                    if (getCustomerType() <= 2 && getCustomerType() >= 1) {
+                        break;
                     }
 
                     else {
-                        input.next();
                         System.out.print("Please enter a valid customer type. 1 for student or 2 for staff: ");
                     }
-            }
+                }
 
-                System.out.println();
+                else {
+                    input.next();
+                    System.out.print("Please enter a valid customer type. 1 for student or 2 for staff: ");
+                }
+        }
+
+            System.out.println();
 
     }
 
@@ -233,6 +233,9 @@ public class OrderBurger extends Order {
 
     }
 
+    /*
+     * void saveBillToFile
+     */
     public void saveBillToFile() {
         if(orderArrEmpty()) {
             return;

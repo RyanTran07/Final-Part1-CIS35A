@@ -77,6 +77,20 @@ public abstract class Order implements OrderInterface {
     public abstract void printBill();
     public abstract boolean orderArrEmpty();
 
+    /*
+     * Getters:
+     * getArrSize - Returns array size for burger array, price array, quantity array
+     * getBurgerNames - Returns the burgerNames array.
+     * getOrderArr - Returns the order quantity array (orderArr)
+     * getPriceArr - Returns the price array (priceArr)
+     * getCustomerType - Returns the value of the instance variable customerType
+     * getSubTotal - Returns the value of the instance variable subTotal
+     * getTotal - Returns the value of the instance variable total
+     * getTax - Returns the taxAmount instance variable
+     *
+     *
+     *
+     */
     public int getArrSize() {
         return arrSize;
     }
@@ -109,6 +123,14 @@ public abstract class Order implements OrderInterface {
         return taxAmount;
     }
 
+    /*
+     * Setters:
+     * setOrderArr - Set the ordderArr to the integer array that is passed in
+     * setCustomerType - Set the customerType to the integer passed in the function call
+     * setSubTotal - Set subTotal to the subTotal (type double) that is passed in the function call
+     * setTotal - Set the total to the total (type double) that is passed in the function call
+     * setTaxAmount - Set the taxAmount to the taxAmount (type double) that is passed into the function call
+     */
     public void setOrderArr(int[] orderArr) {
         this.orderArr = orderArr;
     }
