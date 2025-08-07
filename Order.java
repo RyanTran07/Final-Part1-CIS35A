@@ -24,10 +24,10 @@ public abstract class Order implements OrderInterface {
     Scanner input = new Scanner(System.in);
 
     // Array instance variables
-    private final int arrSize = 5;
-    private final String[] burgerNames = {"De Anza Burger", "Bacon Cheese Burger", "Mushroom Swiss Burger", "Western Burger", "Don Cali Burger"};
+    private final int ARR_SIZE = 5;
+    private final String[] BURGER_NAMES = {"De Anza Burger", "Bacon Cheese Burger", "Mushroom Swiss Burger", "Western Burger", "Don Cali Burger"};
     private int[] orderArr = {0, 0, 0, 0, 0};
-    private final double[] priceArr = {5.25, 5.75, 5.95, 5.95, 5.95};
+    private final double[] PRICE_ARR = {5.25, 5.75, 5.95, 5.95, 5.95};
 
     // customerType = 1 (student) customerType = 2 (staff)
     private int customerType = -1;
@@ -43,7 +43,7 @@ public abstract class Order implements OrderInterface {
      * Purpose: A default constructor, takes no arguments.
      *
      */
-    public Order() {}
+    protected Order() {}
 
     /*
      * void displayMenu()
@@ -60,8 +60,8 @@ public abstract class Order implements OrderInterface {
         System.out.println("==========================================");
 
         System.out.println("De Anza Food Menu: ");
-        for(int i = 0; i < arrSize; i++) {
-            System.out.println((i+1) + ". " + burgerNames[i] + " - $" + priceArr[i]);
+        for(int i = 0; i < ARR_SIZE; i++) {
+            System.out.println((i+1) + ". " + BURGER_NAMES[i] + " - $" + PRICE_ARR[i]);
             System.out.println();
         }
 
@@ -76,6 +76,7 @@ public abstract class Order implements OrderInterface {
     public abstract void calculate();
     public abstract void printBill();
     public abstract boolean orderArrEmpty();
+    public abstract void saveBillToFile();
 
     /*
      * Getters:
@@ -92,11 +93,11 @@ public abstract class Order implements OrderInterface {
      *
      */
     public int getArrSize() {
-        return arrSize;
+        return ARR_SIZE;
     }
 
     public String[] getBurgerNames() {
-        return burgerNames;
+        return BURGER_NAMES;
     }
 
     public int[] getOrderArr() {
@@ -104,7 +105,7 @@ public abstract class Order implements OrderInterface {
     }
 
     public double[] getPriceArr() {
-        return priceArr;
+        return PRICE_ARR;
     }
 
     public int getCustomerType() {
@@ -125,12 +126,13 @@ public abstract class Order implements OrderInterface {
 
     /*
      * Setters:
-     * setOrderArr - Set the ordderArr to the integer array that is passed in
+     * setOrderArr - Set the orderArr to the integer array that is passed in
      * setCustomerType - Set the customerType to the integer passed in the function call
      * setSubTotal - Set subTotal to the subTotal (type double) that is passed in the function call
      * setTotal - Set the total to the total (type double) that is passed in the function call
      * setTaxAmount - Set the taxAmount to the taxAmount (type double) that is passed into the function call
      */
+
     public void setOrderArr(int[] orderArr) {
         this.orderArr = orderArr;
     }
