@@ -1,0 +1,9 @@
+Here is your receipt:
+--------------------------------------
+De Anza Burger: $5.25 x 4 = $21.00
+Mushroom Swiss Burger: $5.95 x 20 = $119.00
+Don Cali Burger: $5.95 x 23 = $136.85
+
+Subtotal: $276.85
+Tax Amount: $0.00
+Total: $276.85

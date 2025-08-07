@@ -1,0 +1,11 @@
+Here is your receipt:
+--------------------------------------
+De Anza Burger: $5.25 x 15 = $78.75
+Bacon Cheese Burger: $5.75 x 24 = $138.00
+Mushroom Swiss Burger: $5.95 x 33 = $196.35
+Western Burger: $5.95 x 42 = $249.90
+Don Cali Burger: $5.95 x 51 = $303.45
+
+Subtotal: $966.45
+Tax Amount: $86.98
+Total: $1053.43
